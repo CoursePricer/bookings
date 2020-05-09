@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Booking Form Example - Basic</title>
+	<style>
+		label,
+		input,
+		textarea {
+			display: block;
+		}
+
+		.container {
+			max-width: 640px;
+			padding: 10px 40px;
+			margin: 0 auto;
+			border: 1px dashed #CCC;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="js-quote-details"></div>
+		<h1>Course Booking</h1>
+		<p>Use the form below to book your course.</p>
+		<form method="post" action="/your/submit/path">
+			<h2>Details:</h2>
+			<label for="title">Title:</label><input id="title" type="text" name="title">
+			<label for="first_name">First Name:</label><input id="first_name" type="text" name="first_name">
+			<label for="family_name">Family Name:</label><input id="family_name" type="text" name="family_name">
+			<label for="nationality">Nationality:</label><input id="nationality" type="text" name="nationality">
+			<label for="passport_no">Passport Number:</label><input id="passport_no" type="text" name="passport_no">
+			<label for="native_language">Native Language:</label><input id="native_language" type="text" name="native_language">
+			<label for="date_of_birth">Date of Birth:</label><input id="date_of_birth" type="date" name="date_of_birth">
+			<label for="gender">Gender:</label><input id="gender" type="text" name="gender">
+			<label for="hear">How did you hear about us?:</label><textarea id="hear" name="hear"></textarea>
+
+			<h2>Address:</h2>
+			<label for="address_street">Street:</label><input id="address_street" type="text" name="address_street">
+			<label for="address_city">City:</label><input id="address_city" type="text" name="address_city">
+			<label for="address_county">County / Province / State:</label><input id="address_county" type="text" name="address_county">
+			<label for="address_postcode">Post Code / Zip Code</label><input id="address_postcode" type="text" name="address_postcode">
+			<label for="address_country">Country</label><input id="address_country" type="text" name="address_country">
+
+			<h2>Contact:</h2>
+			<label for="skype_username">Skype Username:</label><input id="skype_username" type="text" name="skype_username">
+			<label for="phone_home">Phone (Home / Landline):</label><input id="phone_home" type="text" name="phone_home">
+			<label for="phone_mobile">Phone (Mobile):</label><input id="phone_mobile" type="text" name="phone_mobile">
+			<label for="email">Email Address:</label><input id="email" type="text" name="email">
+
+			<h2>Emergency contact:</h2>
+			<label for="emergency_name">Emergency Contact Name:</label><input id="emergency_name" type="text" name="emergency_name">
+			<label for="emergency_phone">Emergency Contact Phone:</label><input id="emergency_phone" type="text" name="emergency_phone">
+
+			<h2>Medical:</h2>
+			<label for="medical">Medical Problems or Allergies:</label><textarea id="medical" name="medical"></textarea>
+
+			<h2>Declaration:</h2>
+			<p>Does the quotation above accurately reflect your choice of arrangements including course, dates, and accommodation? Please type "Yes" or otherwise give details</p>
+			<textarea id="quote_correct" name="quote_correct"></textarea>
+			<p>Is there anything else you would like us to know?</p>
+			<textarea id="other" name="other"></textarea>
+			<p>Type your name below to confirm that you have read and understood our privacy policy and our terms and conditions.</p>
+			<label for="signature">Typed Name:</label><input id="signature" type="text" name="signature">
+
+			<input type="hidden" name="quote_details" value="">
+			<input type="submit" value="BOOK">
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script>
+		$(function() {
+			function get_url_param(key) {
+				var params={};
+				location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
+					params[key] = value;
+				});
+				return (typeof params[key] !== "undefined") ? params[key] : '';
+			}
+			(function() {
+				var api_key = 'API TOKEN GOES HERE'; /* replace with your api key */
+				var quote_id = get_url_param('quote_id');
+				var endpoint = 'https://api.coursepricer.com/bookingquotations/' + quote_id;
+
+				if (quote_id) {
+					$.ajax({
+						method: 'GET',
+						url : endpoint,
+						headers: { "Authorization": 'Bearer ' + api_key },
+						success: function(obj) {
+							var d = obj.data;
+							var h = '<h1>Your Quote</h1>';
+
+							function format_currency(curr, amt) {
+								if (curr === 'GBP')
+									return '&pound;' + amt;
+								if (curr === 'USD')
+									return '&dollar;' + amt;
+
+								return amt + ' ' + curr;
+							}
+
+							h += '<h4>Selected Course</h4>';
+							h += '<p>' + d.course + '</p>';
+							h += '<h4>Selected Dates</h4>';
+							h += '<p>' + d.course_start_date + ' - ' + d.course_end_date + '</p>';
+							h += '<h4>Course cost</h4>'
+							h += '<p>' + d.course + ' (' + d.weeks + ' weeks): ' + format_currency(d.currency_completed_in, d.course_cost) + '</p>';
+							if (d.weekly_options) {
+								for (var charge of Object.values(d.weekly_options)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.accommodation_name) {
+								h += '<h4>Accommodation</h4>'
+								h += '<p>' + d.accommodation_name + ': ';
+								h += format_currency(d.currency_completed_in, d.accommodation_cost_from);
+								if (d.accommodation_cost_from !== d.accommodation_cost_to)
+									h += ' - ' + format_currency(d.currency_completed_in, d.accommodation_cost_to);
+								h += '</p>';
+							}
+
+							h += '<h4>Other Charges</h4>';
+
+							if (d.misc_weekly_charges) {
+								for (var charge of Object.values(d.misc_weekly_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.optional_periodic_charges) {
+								for (var charge of Object.values(d.optional_periodic_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.misc_extras) {
+								for (var charge of Object.values(d.misc_extras)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (typeof d.auto_charges !== "undefined") {
+								if (d.auto_charges.courseAutoCharges) {
+									d.auto_charges.courseAutoCharges.forEach(function(charge) {
+										h += '<p>' + charge.auto_charge_name + ': ' + format_currency(d.currency_completed_in, charge.auto_charge_price) + '</p>';
+									});
+								}
+
+								if (d.auto_charges.courseWeeklyAutoCharges) {
+									d.auto_charges.courseWeeklyAutoCharges.forEach(function(charge) {
+										h += '<p>' + charge.auto_weekly_charge_name + ': ' + format_currency(d.currency_completed_in, charge.auto_weekly_charge_price) + '</p>';
+									});
+								}
+
+								if (d.auto_charges.oneOffCharge && d.auto_charges.oneOffCharge.amount > 0) {
+									h += '<p>One-off charge: ' + format_currency(d.currency_completed_in, d.auto_charges.oneOffCharge.amount) + '</p>';
+								}
+							}
+
+							if (d.mandatory_periodic_charges) {
+								for (var charge of Object.values(d.mandatory_periodic_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.misc_charges) {
+								for (var charge of Object.values(d.misc_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.transfers_name) {
+								h += '<p>Airport Transfer (' + d.transfers_name + '): ' + format_currency(d.currency_completed_in, d.transfers_cost_from);
+								if (d.transfers_cost_from !== d.transfers_cost_to)
+									h += ' - ' + format_currency(d.currency_completed_in, d.transfers_cost_to);
+								h += '</p>';
+							}
+
+							if (typeof d.auto_charges !== "undefined") {
+								if (d.auto_charges.regFees) {
+									d.auto_charges.regFees.forEach(function(charge) {
+										h += '<p>' + charge.option_reg_fee_name + ': ' + format_currency(d.currency_completed_in, charge.option_reg_fee_price) + '</p>';
+									});
+								}
+							}
+
+							h += '<h4>Total Cost: ' + format_currency(d.currency_completed_in, d.total_low);
+							if (d.total_low !== d.total_high)
+								h += ' - ' + format_currency(d.currency_completed_in, d.total_high);
+							h += '</h4>';
+
+							h += '<hr>';
+
+							$('.js-quote-details').html(h);
+							$('input[name="quote_details"]').val(JSON.stringify(d));
+						}
+					});
+				}
+			})();
+		});
+	</script>
+</body>
+</html>

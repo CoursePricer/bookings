@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Booking Form Example - Tailwind</title>
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<style>
+		.container {
+			max-width: 640px;
+			padding: 10px 40px;
+			margin: 0 auto;
+			border: 1px dashed #CCC;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="js-quote-details"></div>
+		<h1 class="block uppercase tracking-wide text-gray-700 text-lg font-bold">Course Booking</h1>
+		<p class="block tracking-wide text-gray-700 text-base font-bold">Use the form below to book your course.</p><br>
+
+		<form class="w-full" method="post" action="/your/submit/path">
+			<h2 class="block uppercase tracking-wide text-gray-700 text-lg font-bold">Details:</h2>
+			<div class="flex flex-wrap -mx-3 mb-6">
+				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">
+						Title
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="title" type="text" placeholder="Mrs" name="title">
+				</div>
+				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first_name">
+						First Name
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="first_name" type="text" placeholder="Jane" name="first_name">
+				</div>
+				<div class="w-full md:w-1/3 px-3">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="family_name">
+						Family Name
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="family_name" type="text" placeholder="Doe" name="family_name">
+				</div>
+			</div>
+			<div class="flex flex-wrap -mx-3 mb-6">
+				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nationality">
+						Nationality
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="nationality" type="text" placeholder="British" name="nationality">
+				</div>
+				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="passport_no">
+						Passport Number:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="passport_no" type="text" placeholder="GB12345678912345" name="passport_no">
+				</div>
+				<div class="w-full md:w-1/3 px-3">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="native_language">
+						Native Language
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="native_language" type="text" placeholder="English" name="native_language">
+				</div>
+			</div>
+
+			<div class="flex flex-wrap -mx-2 mb-6">
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="date_of_birth">
+						Date of Birth:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="date_of_birth" type="date" placeholder="British" name="date_of_birth">
+				</div>
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="gender">
+						Gender:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="gender" type="text" placeholder="Female" name="gender">
+				</div>
+			</div>
+
+			<div class="flex flex-wrap -mx-1 mb-6">
+				<div class="w-full md:w-1/1 px-1 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="hear">
+						How did you hear about us?
+					</label>
+					<textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="hear" name="hear"></textarea>
+				</div>
+			</div>
+
+			<h2 class="block uppercase tracking-wide text-gray-700 text-lg font-bold">Address:</h2>
+			<div class="flex flex-wrap -mx-2 mb-6">
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address_street">
+						Street:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="address_street" type="text" placeholder="1 Street name" name="address_street">
+				</div>
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address_city">
+						City:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="address_city" type="text" placeholder="City" name="address_city">
+				</div>
+			</div>
+			<div class="flex flex-wrap -mx-2 mb-6">
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address_county">
+						County / Province / State:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="address_county" type="text" placeholder="British" name="address_county">
+				</div>
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address_postcode">
+						Post Code / Zip Code:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="address_postcode" type="text" placeholder="90210" name="address_postcode">
+				</div>
+			</div>
+			<div class="flex flex-wrap -mx-1 mb-6">
+				<div class="w-full md:w-1/1 px-1 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address_country">
+						Country:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="address_country" type="text" placeholder="United Kingdom" name="address_country">
+				</div>
+			</div>
+
+			<h2 class="block uppercase tracking-wide text-gray-700 text-lg font-bold">Contact:</h2>
+			<div class="flex flex-wrap -mx-2 mb-6">
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="skype_username">Skype Username:</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="skype_username" type="text" placeholder="JaneDoe" name="skype_username">
+				</div>
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone_home">Phone (Home / Landline):</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="phone_home" type="text" placeholder="+44123 456789" name="phone_home">
+				</div>
+			</div>
+			<div class="flex flex-wrap -mx-2 mb-6">
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone_mobile">Phone (Mobile):</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="phone_mobile" type="text" placeholder="+447123 456789" name="phone_mobile">
+				</div>
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">Email Address:</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="address_country" type="text" placeholder="jane.doe@email.com" name="email">
+				</div>
+			</div>
+
+			<h2 class="block uppercase tracking-wide text-gray-700 text-lg font-bold">Emergency Contact:</h2>
+			<div class="flex flex-wrap -mx-2 mb-6">
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="emergency_name">Emergency Contact Name:</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="emergency_name" type="text" placeholder="John Doe" name="emergency_name">
+				</div>
+				<div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="emergency_phone">Emergency Contact Phone:</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="emergency_phone" type="text" placeholder="+447123 456789" name="emergency_phone">
+				</div>
+			</div>
+
+			<h2 class="block uppercase tracking-wide text-gray-700 text-lg font-bold">Medical:</h2>
+			<div class="flex flex-wrap -mx-1 mb-6">
+				<div class="w-full md:w-1/1 px-1 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="medical">
+						Medical Problems or Allergies:
+					</label>
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="medical" type="text" placeholder="" name="medical">
+				</div>
+			</div>
+
+			<h2 class="block uppercase tracking-wide text-gray-700 text-lg font-bold">Declaration:</h2>
+			<div class="flex flex-wrap -mx-1 mb-6">
+				<div class="w-full md:w-1/1 px-1 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="quote_correct">
+						Does the quotation above accurately reflect your choice of arrangements including course, dates, and accommodation? Please type "Yes" or otherwise give details
+					</label>
+					<textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="quote_correct" type="text" placeholder="YES" name="quote_correct"></textarea>
+				</div>
+			</div>
+			<div class="flex flex-wrap -mx-1 mb-6">
+				<div class="w-full md:w-1/1 px-1 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="other">
+						Is there anything else you would like us to know?
+					</label>
+					<textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="other" type="text" placeholder="" name="other"></textarea>
+				</div>
+			</div>
+			<div class="flex flex-wrap -mx-1 mb-6">
+				<div class="w-full md:w-1/1 px-1 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="signature">
+						Type your name below to confirm that you have read and understood our privacy policy and our terms and conditions.
+					</label>
+					<textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="signature" type="text" placeholder="" name="signature"></textarea>
+				</div>
+			</div>
+			<input type="hidden" name="quote_details" value="">
+			<div class="text-center">
+				<input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" type="submit" value="BOOK">
+			</div>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script>
+		$(function() {
+			function get_url_param(key) {
+				var params={};
+				location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
+					params[key] = value;
+				});
+				return (typeof params[key] !== "undefined") ? params[key] : '';
+			}
+			(function() {
+				var api_key = 'API TOKEN GOES HERE'; /* replace with your api key */
+				var quote_id = get_url_param('quote_id');
+				var endpoint = 'https://api.coursepricer.com/bookingquotations/' + quote_id;
+
+				if (quote_id) {
+					$.ajax({
+						method: 'GET',
+						url : endpoint,
+						headers: { "Authorization": 'Bearer ' + api_key },
+						success: function(obj) {
+							var d = obj.data;
+							var h = '<h1>Your Quote</h1>';
+
+							function format_currency(curr, amt) {
+								if (curr === 'GBP')
+									return '&pound;' + amt;
+								if (curr === 'USD')
+									return '&dollar;' + amt;
+
+								return amt + ' ' + curr;
+							}
+
+							h += '<h4>Selected Course</h4>';
+							h += '<p>' + d.course + '</p>';
+							h += '<h4>Selected Dates</h4>';
+							h += '<p>' + d.course_start_date + ' - ' + d.course_end_date + '</p>';
+							h += '<h4>Course cost</h4>'
+							h += '<p>' + d.course + ' (' + d.weeks + ' weeks): ' + format_currency(d.currency_completed_in, d.course_cost) + '</p>';
+							if (d.weekly_options) {
+								for (var charge of Object.values(d.weekly_options)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.accommodation_name) {
+								h += '<h4>Accommodation</h4>'
+								h += '<p>' + d.accommodation_name + ': ';
+								h += format_currency(d.currency_completed_in, d.accommodation_cost_from);
+								if (d.accommodation_cost_from !== d.accommodation_cost_to)
+									h += ' - ' + format_currency(d.currency_completed_in, d.accommodation_cost_to);
+								h += '</p>';
+							}
+
+							h += '<h4>Other Charges</h4>';
+
+							if (d.misc_weekly_charges) {
+								for (var charge of Object.values(d.misc_weekly_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.optional_periodic_charges) {
+								for (var charge of Object.values(d.optional_periodic_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.misc_extras) {
+								for (var charge of Object.values(d.misc_extras)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (typeof d.auto_charges !== "undefined") {
+								if (d.auto_charges.courseAutoCharges) {
+									d.auto_charges.courseAutoCharges.forEach(function(charge) {
+										h += '<p>' + charge.auto_charge_name + ': ' + format_currency(d.currency_completed_in, charge.auto_charge_price) + '</p>';
+									});
+								}
+
+								if (d.auto_charges.courseWeeklyAutoCharges) {
+									d.auto_charges.courseWeeklyAutoCharges.forEach(function(charge) {
+										h += '<p>' + charge.auto_weekly_charge_name + ': ' + format_currency(d.currency_completed_in, charge.auto_weekly_charge_price) + '</p>';
+									});
+								}
+
+								if (d.auto_charges.oneOffCharge && d.auto_charges.oneOffCharge.amount > 0) {
+									h += '<p>One-off charge: ' + format_currency(d.currency_completed_in, d.auto_charges.oneOffCharge.amount) + '</p>';
+								}
+							}
+
+							if (d.mandatory_periodic_charges) {
+								for (var charge of Object.values(d.mandatory_periodic_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.misc_charges) {
+								for (var charge of Object.values(d.misc_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.transfers_name) {
+								h += '<p>Airport Transfer (' + d.transfers_name + '): ' + format_currency(d.currency_completed_in, d.transfers_cost_from);
+								if (d.transfers_cost_from !== d.transfers_cost_to)
+									h += ' - ' + format_currency(d.currency_completed_in, d.transfers_cost_to);
+								h += '</p>';
+							}
+
+							if (typeof d.auto_charges !== "undefined") {
+								if (d.auto_charges.regFees) {
+									d.auto_charges.regFees.forEach(function(charge) {
+										h += '<p>' + charge.option_reg_fee_name + ': ' + format_currency(d.currency_completed_in, charge.option_reg_fee_price) + '</p>';
+									});
+								}
+							}
+
+							h += '<h4>Total Cost: ' + format_currency(d.currency_completed_in, d.total_low);
+							if (d.total_low !== d.total_high)
+								h += ' - ' + format_currency(d.currency_completed_in, d.total_high);
+							h += '</h4>';
+
+							h += '<hr>';
+
+							$('.js-quote-details').html(h);
+							$('input[name="quote_details"]').val(JSON.stringify(d));
+						}
+					});
+				}
+			})();
+		});
+	</script>
+</body>
+</html>

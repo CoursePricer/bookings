@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Booking Form Example - Bootstrap</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		.container {
+			max-width: 640px;
+			padding: 10px 40px;
+			margin: 0 auto;
+			border: 1px dashed #CCC;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="js-quote-details"></div>
+		<h1>Course Booking</h1>
+		<p>Use the form below to book your course.</p>
+		<form method="post" action="/your/submit/path">
+			<h4>Details:</h4>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="title">Title:</label>
+					<input type="text" class="form-control" placeholder="Mrs" id="title" name="title">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="first_name">First Name:</label>
+					<input type="text" class="form-control" placeholder="Jane" id="first_name" name="first_name">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="family_name">Family Name:</label>
+					<input type="text" class="form-control" placeholder="Doe" id="family_name" name="family_name">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="nationality">Nationality:</label>
+					<input type="text" class="form-control" placeholder="British" id="nationality" name="nationality">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="passport_no">Passport Number:</label>
+					<input type="text" class="form-control" placeholder="GB12345678912345" id="passport_no" name="passport_no">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="native_language">Native Language:</label>
+					<input type="text" class="form-control" placeholder="English" id="native_language" name="native_language">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="date_of_birth">Date of Birth:</label>
+					<input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="gender">Gender:</label>
+					<input type="text" class="form-control" placeholder="Female" id="gender" name="gender">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="hear">How did you hear about us?</label>
+					<textarea class="form-control" id="hear" name="hear"></textarea>
+				</div>
+			</div>
+
+			<h4>Address:</h4>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="address_street">Street:</label>
+					<input type="text" class="form-control" id="address_street" name="address_street">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="address_city">City:</label>
+					<input type="text" class="form-control" placeholder="Female" id="address_city" name="address_city">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="text">County / Province / State:</label>
+					<input type="text" class="form-control" id="address_county" name="address_county">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="address_city">Post Code / Zip Code:</label>
+					<input type="text" class="form-control" placeholder="90210" id="address_city" name="address_city">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="address_country">Country:</label>
+					<input type="txt" class="form-control" id="address_country" name="address_country">
+				</div>
+			</div>
+
+			<h4>Contact:</h4>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="skype_username">Skype Username:</label>
+					<input type="text" class="form-control" placeholder="JaneDoe" id="skype_username" name="skype_username">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="phone_home">Phone (Home / Landline):</label>
+					<input type="text" class="form-control" placeholder="+44123 456789" id="phone_home" name="phone_home">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="phone_mobile">Phone (Mobile):</label>
+					<input type="text" class="form-control" placeholder="+447123 456789" id="phone_mobile" name="phone_mobile">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="email">Email Address:</label>
+					<input type="email" class="form-control" placeholder="jane.doe@email.com" id="email" name="email">
+				</div>
+			</div>
+
+			<h4>Emergency contact:</h4>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="text">Emergency Contact Name:</label>
+					<input type="text" class="form-control" placeholder="John Doe" id="emergency_name" name="emergency_name">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="emergency_phone">Emergency Contact Phone:</label>
+					<input type="emergency_phone" class="form-control" placeholder="+447123 456789" id="emergency_phone" name="emergency_phone">
+				</div>
+			</div>
+
+			<h4>Medical:</h4>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="medical">Medical Problems or Allergies:</label>
+					<textarea class="form-control" id="medical" name="medical"></textarea>
+				</div>
+			</div>
+
+			<h4>Declaration:</h4>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="quote_correct">Does the quotation above accurately reflect your choice of arrangements including course, dates, and accommodation? Please type "Yes" or otherwise give details:</label>
+					<textarea class="form-control" placeholder="YES" id="quote_correct" name="quote_correct"></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="other">Is there anything else you would like us to know?</label>
+					<textarea class="form-control" id="other" name="other"></textarea>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+					<label for="signature">Type your name below to confirm that you have read and understood your privacy policy and your terms and conditions.</label>
+					<textarea class="form-control" id="signature" name="signature"></textarea>
+				</div>
+			</div>
+			<input type="hidden" name="quote_details" value="">
+			<div class="text-center">
+				<input class="btn btn-primary" type="submit" value="BOOK">
+			</div>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script>
+		$(function() {
+			function get_url_param(key) {
+				var params={};
+				location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
+					params[key] = value;
+				});
+				return (typeof params[key] !== "undefined") ? params[key] : '';
+			}
+			(function() {
+				var api_key = 'API TOKEN GOES HERE'; /* replace with your api key */
+				var quote_id = get_url_param('quote_id');
+				var endpoint = 'https://api.coursepricer.com/bookingquotations/' + quote_id;
+
+				if (quote_id) {
+					$.ajax({
+						method: 'GET',
+						url : endpoint,
+						headers: { "Authorization": 'Bearer ' + api_key },
+						success: function(obj) {
+							var d = obj.data;
+							var h = '<h1>Your Quote</h1>';
+
+							function format_currency(curr, amt) {
+								if (curr === 'GBP')
+									return '&pound;' + amt;
+								if (curr === 'USD')
+									return '&dollar;' + amt;
+
+								return amt + ' ' + curr;
+							}
+
+							h += '<h4>Selected Course</h4>';
+							h += '<p>' + d.course + '</p>';
+							h += '<h4>Selected Dates</h4>';
+							h += '<p>' + d.course_start_date + ' - ' + d.course_end_date + '</p>';
+							h += '<h4>Course cost</h4>'
+							h += '<p>' + d.course + ' (' + d.weeks + ' weeks): ' + format_currency(d.currency_completed_in, d.course_cost) + '</p>';
+							if (d.weekly_options) {
+								for (var charge of Object.values(d.weekly_options)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.accommodation_name) {
+								h += '<h4>Accommodation</h4>'
+								h += '<p>' + d.accommodation_name + ': ';
+								h += format_currency(d.currency_completed_in, d.accommodation_cost_from);
+								if (d.accommodation_cost_from !== d.accommodation_cost_to)
+									h += ' - ' + format_currency(d.currency_completed_in, d.accommodation_cost_to);
+								h += '</p>';
+							}
+
+							h += '<h4>Other Charges</h4>';
+
+							if (d.misc_weekly_charges) {
+								for (var charge of Object.values(d.misc_weekly_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.optional_periodic_charges) {
+								for (var charge of Object.values(d.optional_periodic_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.misc_extras) {
+								for (var charge of Object.values(d.misc_extras)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (typeof d.auto_charges !== "undefined") {
+								if (d.auto_charges.courseAutoCharges) {
+									d.auto_charges.courseAutoCharges.forEach(function(charge) {
+										h += '<p>' + charge.auto_charge_name + ': ' + format_currency(d.currency_completed_in, charge.auto_charge_price) + '</p>';
+									});
+								}
+
+								if (d.auto_charges.courseWeeklyAutoCharges) {
+									d.auto_charges.courseWeeklyAutoCharges.forEach(function(charge) {
+										h += '<p>' + charge.auto_weekly_charge_name + ': ' + format_currency(d.currency_completed_in, charge.auto_weekly_charge_price) + '</p>';
+									});
+								}
+
+								if (d.auto_charges.oneOffCharge && d.auto_charges.oneOffCharge.amount > 0) {
+									h += '<p>One-off charge: ' + format_currency(d.currency_completed_in, d.auto_charges.oneOffCharge.amount) + '</p>';
+								}
+							}
+
+							if (d.mandatory_periodic_charges) {
+								for (var charge of Object.values(d.mandatory_periodic_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.misc_charges) {
+								for (var charge of Object.values(d.misc_charges)) {
+									h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+								}
+							}
+
+							if (d.transfers_name) {
+								h += '<p>Airport Transfer (' + d.transfers_name + '): ' + format_currency(d.currency_completed_in, d.transfers_cost_from);
+								if (d.transfers_cost_from !== d.transfers_cost_to)
+									h += ' - ' + format_currency(d.currency_completed_in, d.transfers_cost_to);
+								h += '</p>';
+							}
+
+							if (typeof d.auto_charges !== "undefined") {
+								if (d.auto_charges.regFees) {
+									d.auto_charges.regFees.forEach(function(charge) {
+										h += '<p>' + charge.option_reg_fee_name + ': ' + format_currency(d.currency_completed_in, charge.option_reg_fee_price) + '</p>';
+									});
+								}
+							}
+
+							h += '<h4>Total Cost: ' + format_currency(d.currency_completed_in, d.total_low);
+							if (d.total_low !== d.total_high)
+								h += ' - ' + format_currency(d.currency_completed_in, d.total_high);
+							h += '</h4>';
+
+							h += '<hr>';
+
+							$('.js-quote-details').html(h);
+							$('input[name="quote_details"]').val(JSON.stringify(d));
+						}
+					});
+				}
+			})();
+		});
+	</script>
+</body>
+</html>
