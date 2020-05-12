@@ -194,8 +194,8 @@
 				</div>
 			</div>
 			<input type="hidden" name="quote_details" value="">
-			<div class="text-center">
-				<input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" type="submit" value="BOOK">
+			<div class="text-center text-xl">
+				<input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="BOOK">
 			</div>
 		</form>
 	</div>
@@ -223,8 +223,8 @@
 						url : endpoint,
 						headers: { "Authorization": 'Bearer ' + api_key },
 						success: function(obj) {
-							var d = obj.data;
-							var h = '<h1>Your Quote</h1>';
+														var d = obj.data;
+							var h = '<h1 class="block uppercase tracking-wide text-3xl font-bold">Your Quote</h1>';
 
 							function format_currency(curr, amt) {
 								if (curr === 'GBP')
@@ -235,11 +235,11 @@
 								return amt + ' ' + curr;
 							}
 
-							h += '<h4>Selected Course</h4>';
+							h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Selected Course</h4>';
 							h += '<p>' + d.course + '</p>';
-							h += '<h4>Selected Dates</h4>';
+							h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Selected Dates</h4>';
 							h += '<p>' + d.course_start_date + ' - ' + d.course_end_date + '</p>';
-							h += '<h4>Course cost</h4>'
+							h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Course cost</h4>'
 							h += '<p>' + d.course + ' (' + d.weeks + ' weeks): ' + format_currency(d.currency_completed_in, d.course_cost) + '</p>';
 							if (d.weekly_options) {
 								for (var charge of Object.values(d.weekly_options)) {
@@ -248,7 +248,7 @@
 							}
 
 							if (d.accommodation_name) {
-								h += '<h4>Accommodation</h4>'
+								h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Accommodation</h4>'
 								h += '<p>' + d.accommodation_name + ': ';
 								h += format_currency(d.currency_completed_in, d.accommodation_cost_from);
 								if (d.accommodation_cost_from !== d.accommodation_cost_to)
@@ -256,7 +256,7 @@
 								h += '</p>';
 							}
 
-							h += '<h4>Other Charges</h4>';
+							h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Other Charges</h4>';
 
 							if (d.misc_weekly_charges) {
 								for (var charge of Object.values(d.misc_weekly_charges)) {
@@ -321,7 +321,7 @@
 								}
 							}
 
-							h += '<h4>Total Cost: ' + format_currency(d.currency_completed_in, d.total_low);
+							h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Total Cost: ' + format_currency(d.currency_completed_in, d.total_low);
 							if (d.total_low !== d.total_high)
 								h += ' - ' + format_currency(d.currency_completed_in, d.total_high);
 							h += '</h4>';
