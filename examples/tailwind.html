@@ -249,7 +249,8 @@
 
 							if (d.accommodation_name) {
 								h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Accommodation</h4>'
-								h += '<p>' + d.accommodation_name + ': ';
+								h += '<p>' + d.accommodation_name + '<br>';
+								h += '(' + d.accommodation_start_date + ' - ' + d.accommodation_end_date + '): ';
 								h += format_currency(d.currency_completed_in, d.accommodation_cost_from);
 								if (d.accommodation_cost_from !== d.accommodation_cost_to)
 									h += ' - ' + format_currency(d.currency_completed_in, d.accommodation_cost_to);
