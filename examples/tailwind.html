@@ -291,7 +291,7 @@
 								}
 
 								if (d.auto_charges.oneOffCharge && d.auto_charges.oneOffCharge.amount > 0) {
-									h += '<p>One-off charge: ' + format_currency(d.currency_completed_in, d.auto_charges.oneOffCharge.amount) + '</p>';
+									h += '<p>' + d.auto_charges.oneOffCharge.name + ': ' + format_currency(d.currency_completed_in, d.auto_charges.oneOffCharge.amount) + '</p>';
 								}
 							}
 
