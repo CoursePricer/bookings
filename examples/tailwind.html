@@ -255,6 +255,11 @@
 								if (d.accommodation_cost_from !== d.accommodation_cost_to)
 									h += ' - ' + format_currency(d.currency_completed_in, d.accommodation_cost_to);
 								h += '</p>';
+								if (d.accommodation_extras) {
+									for (var charge of Object.values(d.accommodation_extras)) {
+										h += '<p>' + charge.name + ': ' + format_currency(d.currency_completed_in, charge.cost) + '</p>';
+									}
+								}
 							}
 
 							h += '<h4 class="block uppercase tracking-wide text-lg font-bold">Other Charges</h4>';
